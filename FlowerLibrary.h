@@ -19,7 +19,7 @@ class FlowerLibrary {
 
         void listFeatures(string name) const;
 
-        void addFeature(string name,string feature);
+        void addFeature(string name, string feature);
 
         void removeFeature(string name, string feature);
 

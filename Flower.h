@@ -15,7 +15,7 @@ class Flower {
 
         bool isEmpty() const;
 
-        int getLength() const ;
+        int getLength() const;
 
         bool add(string feature);
 
