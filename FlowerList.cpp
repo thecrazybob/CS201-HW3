@@ -9,27 +9,43 @@ using namespace std;
 // CONSTRUCTORS
 
 // 1. Default constructor
-FlowerList();
+FlowerList:FlowerList() {
+
+}
 
 // 2. Copy constructor
-FlowerList(const FlowerList& aList);
+FlowerList:FlowerList(const FlowerList& aList) {
+
+}
 
 // DESTRUCTOR
-~FlowerList();
+FlowerList:~FlowerList() {
+
+}
 
 // METHODS
 
 // Determines whether the FlowerList is empty
-bool isEmpty() const;
+FlowerList::isEmpty() {
+
+}
 
 // Determines the length of the FlowerList
-int getLength() const;
+FlowerList::getLength() {
+
+}
 
 // Retrieves the given Flower
-bool retrieve(string flowerName, Flower& flower) const;
+FlowerList::retrieve(string flowerName, Flower& flower) {
+
+}
 
 // Adds a flower to the FlowerList
-bool add(string flowerName);
+FlowerList::add(string flowerName) {
+
+}
 
 // Removes the given flower
-bool remove(string flowerName);
+FlowerList::remove(string flowerName) {
+
+}

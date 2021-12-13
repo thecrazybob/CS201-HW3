@@ -34,9 +34,9 @@ class Flower {
 
         string flowerName;
 
-        FeatureNode *head; //the features are stored in a sorted singly linear linked list
+        FeatureNode *head; // the features are stored in a sorted singly linear linked list
 
         // ...
 
-        //you may define additional member functions and data members, if necessary
+        // you may define additional member functions and data members, if necessary
 };

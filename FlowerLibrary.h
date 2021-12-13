@@ -31,6 +31,6 @@ class FlowerLibrary {
 
         // ...
 
-        //you may define additional member functions and data members, if necessary
+        // you may define additional member functions and data members, if necessary
 
 };
