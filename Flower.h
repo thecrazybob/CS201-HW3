@@ -1,6 +1,9 @@
 // Mohammed Sohail
 // 22001513
 
+#include <string>
+using namespace std;
+
 class Flower {
 
     public:
@@ -36,7 +39,4 @@ class Flower {
 
         FeatureNode *head; // the features are stored in a sorted singly linear linked list
 
-        // ...
-
-        // you may define additional member functions and data members, if necessary
 };
