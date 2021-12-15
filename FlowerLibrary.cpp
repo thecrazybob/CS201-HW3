@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include "FlowerLibrary.h";
+#include "FlowerLibrary.h"
 using namespace std;
 
 // CONSTRUCTOR
@@ -19,36 +19,36 @@ FlowerLibrary::~FlowerLibrary() {
 // METHODS
 
 // Add Flower to the FlowerLibrary
-FlowerLibrary::addFlower(string name) {
+void FlowerLibrary::addFlower(string name) {
 
 }
 
 // Remove Flower from the FlowerLibrary
-FlowerLibrary::removeFlower(string name) {
+void FlowerLibrary::removeFlower(string name) {
 
 }
 
 // List all Flowers in the FlowerLibrary
-FlowerLibrary::listFlowers() {
+void FlowerLibrary::listFlowers() const {
 
 }
 
 // List features of the given flower
-FlowerLibrary::listFeatures(string name) {
+void FlowerLibrary::listFeatures(string name) const {
 
 }
 
 // Add feature to the given flower
-FlowerLibrary::addFeature(string name, string feature) {
+void FlowerLibrary::addFeature(string name, string feature) {
 
 }
 
 // Remove feature from the given flower
-FlowerLibrary::removeFeature(string name, string feature) {
+void FlowerLibrary::removeFeature(string name, string feature) {
 
 }
 
 // Find Flowers with the given feature
-FlowerLibrary::findFlowers(string feature) {
+void FlowerLibrary::findFlowers(string feature) const {
 
 }

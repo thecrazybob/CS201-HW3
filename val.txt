@@ -1,0 +1,17 @@
+isEmpty(): 1
+getLength(): 0
+isEmpty(): 0
+getLength(): 6
+google: a ab az nice noot z isEmpty(): 0
+getLength(): 5
+google: a ab az noot z 
+end of Flower class testing
+isEmpty(): 1
+getLength(): 0
+isEmpty(): 0
+getLength(): 6
+FlowerList: bulo gulo lato mato mulo shato 
+isEmpty(): 0
+getLength(): 4
+FlowerList: gulo mato mulo shato 
+FlowerList: gulo mato mulo 

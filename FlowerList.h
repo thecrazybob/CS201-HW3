@@ -2,6 +2,7 @@
 // 22001513
 
 #include "Flower.h"
+using namespace std;
 
 class FlowerList {
 
@@ -23,6 +24,10 @@ class FlowerList {
 
         bool remove(string flowerName);
 
+        string printFlowerList() const;
+
+        void toLowerCase(string &originalString) const;
+
     private:
 
         struct FlowerNode{
@@ -33,9 +38,5 @@ class FlowerList {
         int size;
 
         FlowerNode* head; // the flowers are stored in a sorted singly linear linked list
-
-        // ...
-
-        // you may define additional member functions and data members, if necessary
 
 };

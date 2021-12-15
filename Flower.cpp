@@ -88,12 +88,14 @@ int Flower::getLength() const {
 // Add a feature to the Flower object
 bool Flower::add(string feature) {
 
+    // convert feature string to a lowercase string
+    toLowerCase(feature);
+
     // create a FeatureNode from the given 'feature' string
     FeatureNode *newFeature = new FeatureNode;
     newFeature->feature = feature;
-    newFeature->next = head;
 
-    // If list is empty or new items needs to be inserted at the start
+    // If list is empty or new item needs to be inserted at the start
     if (head == NULL || head->feature > newFeature->feature) {
         newFeature->next = head;
         head = newFeature;
@@ -129,36 +131,47 @@ bool Flower::add(string feature) {
 // Remove a feature from the Flower object
 bool Flower::remove(string feature) {
 
-    // Current FeatureNode (used in while loop)
-    FeatureNode *cur;
-
-    // Points to to the head of the existing linked list
-    cur = head;
+    // convert feature string to a lowercase string
+    toLowerCase(feature);
 
     // 1. The linked list is empty - nothing to remove
     if (head == NULL) {
         return false;
     }
 
-    // 2. The first item in the list is matched - point head to second item in list
-    else if (head->feature == feature) {
-        head = head->next;
-        --size;
-        return true;
-    }
-
     else {
-        // 3. Loop through list to find item and remove if found
-        while (cur->next != NULL && cur->next->feature <= feature) {
-            if (cur->next->feature == feature) {
-                cur->next = cur->next->next;
-                --size;
-                return true;
-            }
-            else {
-                cur = cur->next;
+
+        // Current FeatureNode (used in while loop)
+        FeatureNode *cur;
+
+        // Points to to the head of the existing linked list
+        cur = head;
+
+        // 2. The first item in the list is matched - point head to second item in list
+        if (head->feature == feature) {
+            head = head->next;
+            --size;
+            delete cur;
+            return true;
+        }
+
+        else {
+            // 3. Loop through list to find item and remove if found
+            // while (cur->next != NULL && cur->next->feature <= feature) {
+            while (cur->next != NULL) {
+                if (cur->next->feature == feature) {
+                    FeatureNode* tmp = cur->next;
+                    cur->next = cur->next->next;
+                    --size;
+                    delete tmp;
+                    return true;
+                }
+                else {
+                    cur = cur->next;
+                }
             }
         }
+
     }
 
     return false;
@@ -187,4 +200,22 @@ string Flower::printFlower() const {
     // Return concat. string
     return response;
 
+}
+
+string Flower::getName() const {
+    return flowerName;
+}
+
+void Flower::setName(string newName) {
+    flowerName = newName;
+}
+
+void Flower::toLowerCase(string &originalString) {
+    string lowercaseString = "";
+
+    for (int i = 0; i < originalString.length(); i++) {
+        lowercaseString+= (char) tolower(originalString[i]);
+    }
+
+    originalString = lowercaseString;
 }

@@ -29,8 +29,4 @@ class FlowerLibrary {
 
         FlowerList flowers;
 
-        // ...
-
-        // you may define additional member functions and data members, if necessary
-
 };

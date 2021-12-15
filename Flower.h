@@ -26,6 +26,12 @@ class Flower {
 
         string printFlower() const;
 
+        string getName() const;
+
+        void setName(string newName);
+
+        void toLowerCase(string &originalString);
+
     private:
 
         struct FeatureNode {
