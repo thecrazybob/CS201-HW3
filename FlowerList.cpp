@@ -46,15 +46,17 @@ FlowerList::FlowerList(const FlowerList& aList): size(aList.size) {
 // DESTRUCTOR
 FlowerList::~FlowerList() {
 
-    while (!isEmpty()) {
+    while (head != NULL) {
 
-        for (
-            FlowerNode *curPtr      = head;
-            curPtr                  != NULL;
-            curPtr                  = curPtr->next
-        ) {
-            remove(curPtr->f.getName());
-        }
+        FlowerNode* tmp;
+
+        tmp = head;
+
+        head = head->next;
+
+        delete tmp;
+
+        tmp = NULL;
 
     }
 

@@ -35,36 +35,35 @@ int main() {
 
     cout << "end of Flower class testing" << endl;
 
-    // // 2. Testing FlowerList class
-    // FlowerList fl = FlowerList();
+    // 2. Testing FlowerList class
+    FlowerList fl = FlowerList();
 
-    // cout << "isEmpty(): " << fl.isEmpty() << endl;
-    // cout << "getLength(): " << fl.getLength() << endl;
+    cout << "isEmpty(): " << fl.isEmpty() << endl;
+    cout << "getLength(): " << fl.getLength() << endl;
 
-    // fl.add("lato");
-    // fl.add("mato");
-    // fl.add("shato");
-    // fl.add("gulo");
-    // fl.add("Mulo");
-    // fl.add("bulo");
+    fl.add("lato");
+    fl.add("mato");
+    fl.add("shato");
+    fl.add("gulo");
+    fl.add("Mulo");
+    fl.add("bulo");
 
-    // cout << "isEmpty(): " << fl.isEmpty() << endl;
-    // cout << "getLength(): " << fl.getLength() << endl;
+    cout << "isEmpty(): " << fl.isEmpty() << endl;
+    cout << "getLength(): " << fl.getLength() << endl;
 
-    // cout << fl.printFlowerList() << endl;
+    cout << fl.printFlowerList() << endl;
 
-    // fl.remove("lato");
-    // fl.remove("bulo");
+    fl.remove("lato");
+    fl.remove("bulo");
 
-    // cout << "isEmpty(): " << fl.isEmpty() << endl;
-    // cout << "getLength(): " << fl.getLength() << endl;
+    cout << "isEmpty(): " << fl.isEmpty() << endl;
+    cout << "getLength(): " << fl.getLength() << endl;
 
-    // cout << fl.printFlowerList() << endl;
-    // fl.remove("SHATO");
-    // cout << fl.printFlowerList() << endl;
+    cout << fl.printFlowerList() << endl;
+    fl.remove("SHATO");
+    cout << fl.printFlowerList() << endl;
 
     // Flower retrieved;
     // cout << fl.retrieve("Mato", retrieved) << endl;
-
 
 }

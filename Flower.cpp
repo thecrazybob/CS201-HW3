@@ -59,15 +59,17 @@ Flower::Flower(const Flower& aFlower): size(aFlower.size) {
 // DESTRUCTOR
 Flower::~Flower() {
 
-    while(!isEmpty()) {
+    while (head != NULL) {
 
-        for (
-            FeatureNode *curPtr    = head;
-            curPtr                 != NULL;
-            curPtr                 = curPtr->next
-        ) {
-            remove(curPtr->feature);
-        }
+        FeatureNode* tmp;
+
+        tmp = head;
+
+        head = head->next;
+
+        delete tmp;
+
+        tmp = NULL;
 
     }
 
@@ -160,11 +162,15 @@ bool Flower::remove(string feature) {
             // while (cur->next != NULL && cur->next->feature <= feature) {
             while (cur->next != NULL) {
                 if (cur->next->feature == feature) {
+
                     FeatureNode* tmp = cur->next;
                     cur->next = cur->next->next;
                     --size;
+
                     delete tmp;
+
                     return true;
+
                 }
                 else {
                     cur = cur->next;
