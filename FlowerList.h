@@ -28,6 +28,8 @@ class FlowerList {
 
         void toLowerCase(string &originalString) const;
 
+        bool isDuplicate(string flowerName) const;
+
     private:
 
         struct FlowerNode{

@@ -32,6 +32,8 @@ class Flower {
 
         void toLowerCase(string &originalString);
 
+        bool isDuplicate(string feature);
+
     private:
 
         struct FeatureNode {

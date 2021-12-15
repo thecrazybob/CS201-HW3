@@ -17,6 +17,8 @@ int main() {
     f.add("nOOt");
     f.add("z");
     f.add("a");
+    f.add("a");
+    f.add("a");
     f.add("ab");
     f.add("az");
 
@@ -41,19 +43,23 @@ int main() {
     cout << "isEmpty(): " << fl.isEmpty() << endl;
     cout << "getLength(): " << fl.getLength() << endl;
 
-    fl.add("lato");
-    fl.add("mato");
-    fl.add("shato");
-    fl.add("gulo");
-    fl.add("Mulo");
-    fl.add("bulo");
+    fl.add("zzzz");
+    fl.add("aaaa");
+    fl.add("aaaa");
+    fl.add("aaaa");
+    fl.add("cccc");
+    fl.add("bbbb");
+    // fl.add("gulo");
+    // fl.add("Mulo");
+    // fl.add("bulo");
 
     cout << "isEmpty(): " << fl.isEmpty() << endl;
     cout << "getLength(): " << fl.getLength() << endl;
 
     cout << fl.printFlowerList() << endl;
 
-    fl.remove("lato");
+    fl.remove("cccc");
+    cout << fl.printFlowerList() << endl;
     fl.remove("bulo");
 
     cout << "isEmpty(): " << fl.isEmpty() << endl;
@@ -63,7 +69,8 @@ int main() {
     fl.remove("SHATO");
     cout << fl.printFlowerList() << endl;
 
-    // Flower retrieved;
-    // cout << fl.retrieve("Mato", retrieved) << endl;
+    Flower retrieved;
+    cout << fl.retrieve("cccc", retrieved) << endl;
 
+    return 0;
 }

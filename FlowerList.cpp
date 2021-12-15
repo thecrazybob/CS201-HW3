@@ -77,11 +77,9 @@ int FlowerList::getLength() const {
 // Retrieves the given Flower
 bool FlowerList::retrieve(string flowerName, Flower& flower) const {
 
-    cout << "yes";
     // Convert flowerName string to lowercase string
     string flowerToRetrieve = flowerName;
     toLowerCase(flowerName);
-    cout << flowerName;
 
     // FlowerList empty - nothing to retreieve
     if (isEmpty()) {
@@ -94,14 +92,14 @@ bool FlowerList::retrieve(string flowerName, Flower& flower) const {
 
         cur = head;
 
-        while (cur != NULL || cur->f.getName() != flowerName) {
-            cur->next;
-        }
+        while (cur != NULL) {
 
-        if (cur->f.getName() == flowerName) {
+            if (cur->f.getName() == flowerName) {
+                flower = cur->f;
+                return true;
+            }
 
-            flower = cur->f;
-            return true;
+            cur = cur->next;
 
         }
 
@@ -116,6 +114,11 @@ bool FlowerList::add(string flowerName) {
 
     // convert feature string to a lowercase string
     toLowerCase(flowerName);
+
+    // check if the flowerName is a duplicate
+    if (isDuplicate(flowerName)) {
+        return false;
+    }
 
     // create a FlowerNode from the given 'flowerName' string
     FlowerNode *newFlowerNode = new FlowerNode;
@@ -233,4 +236,22 @@ void FlowerList::toLowerCase(string &originalString) const {
     }
 
     originalString = lowercaseString;
+}
+
+bool FlowerList::isDuplicate(string flowerName) const {
+
+    toLowerCase(flowerName);
+
+    // Traverse through list of flowers
+    for (FlowerNode *curPtr = head; curPtr != NULL; curPtr = curPtr->next) {
+
+        // Return true if given flowerName is already present in flower list
+        if (curPtr->f.getName() == flowerName) {
+            return true;
+        }
+    }
+
+    // No match found - given flowerName isn't a duplicate
+    return false;
+
 }

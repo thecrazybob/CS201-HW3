@@ -93,6 +93,11 @@ bool Flower::add(string feature) {
     // convert feature string to a lowercase string
     toLowerCase(feature);
 
+    // check if the feature is a duplicate
+    if (isDuplicate(feature)) {
+        return false;
+    }
+
     // create a FeatureNode from the given 'feature' string
     FeatureNode *newFeature = new FeatureNode;
     newFeature->feature = feature;
@@ -224,4 +229,22 @@ void Flower::toLowerCase(string &originalString) {
     }
 
     originalString = lowercaseString;
+}
+
+bool Flower::isDuplicate(string feature) {
+
+    toLowerCase(feature);
+
+    // Traverse through list of flowers
+    for (FeatureNode *curPtr = head; curPtr != NULL; curPtr = curPtr->next) {
+
+        // Return true if given flowerName is already present in flower list
+        if (curPtr->feature == feature) {
+            return true;
+        }
+    }
+
+    // No match found - given flowerName isn't a duplicate
+    return false;
+
 }
