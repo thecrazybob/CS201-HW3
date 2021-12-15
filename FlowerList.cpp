@@ -77,43 +77,48 @@ int FlowerList::getLength() const {
 // Retrieves the given Flower
 bool FlowerList::retrieve(string flowerName, Flower& flower) const {
 
-    // Convert flowerName string to lowercase string
-    string flowerToRetrieve = flowerName;
-    toLowerCase(flowerName);
+    // FlowerList empty - nothing to retrieve
+    if (!isEmpty()) {
 
-    // FlowerList empty - nothing to retreieve
-    if (isEmpty()) {
-        return false;
-    }
-
-    else {
-
-        FlowerNode *cur;
-
-        cur = head;
-
-        while (cur != NULL) {
+        for (FlowerNode *cur = head; cur != NULL; cur = cur->next) {
 
             if (cur->f.getName() == flowerName) {
                 flower = cur->f;
                 return true;
             }
 
-            cur = cur->next;
+        }
+
+    }
+
+    cout << flowerName << " isn't found in the library" << endl;
+    return false;
+
+}
+
+bool FlowerList::retrievePointer(string flowerName, Flower*& flower) const {
+
+    // FlowerList empty - nothing to retrieve
+    if (!isEmpty()) {
+
+        for (FlowerNode *cur = head; cur != NULL; cur = cur->next) {
+
+            if (cur->f.getName() == flowerName) {
+                flower = &(cur->f);
+                return true;
+            }
 
         }
 
     }
 
+    cout << flowerName << " isn't found in the library" << endl;
     return false;
 
 }
 
 // Adds a flower to the FlowerList
 bool FlowerList::add(string flowerName) {
-
-    // convert feature string to a lowercase string
-    toLowerCase(flowerName);
 
     // check if the flowerName is a duplicate
     if (isDuplicate(flowerName)) {
@@ -153,15 +158,13 @@ bool FlowerList::add(string flowerName) {
     }
 
     size++;
+    cout << flowerName << " has been added into the library." << endl;
     return true;
 
 }
 
 // Removes the given flower
 bool FlowerList::remove(string flowerName) {
-
-    // convert feature string to a lowercase string
-    toLowerCase(flowerName);
 
     // 1. The linked list is empty - nothing to remove
     if (head == NULL) {
@@ -181,6 +184,7 @@ bool FlowerList::remove(string flowerName) {
             head = head->next;
             --size;
             delete cur;
+            cout << flowerName << " has been removed from the library." << endl;
             return true;
         }
 
@@ -191,6 +195,7 @@ bool FlowerList::remove(string flowerName) {
                     FlowerNode* tmp;
                     tmp = cur->next;
                     cur->next = cur->next->next;
+                    cout << flowerName << " has been removed from the library." << endl;
                     --size;
                     delete tmp;
                     return true;
@@ -203,6 +208,7 @@ bool FlowerList::remove(string flowerName) {
 
     }
 
+    cout << flowerName << " cannot be removed because it's not in the library." << endl;
     return false;
 
 }
@@ -213,40 +219,35 @@ string FlowerList::printFlowerList() const {
 
     // Loop through features and concat. them in a string
     for (FlowerNode *curPtr = head; curPtr != NULL; curPtr = curPtr->next) {
-        flowers += curPtr->f.getName() + " ";
+        flowers += curPtr->f.printFlower() + "\n";
     }
 
     // If no features are found, use default string
     if (flowers == "") {
-        flowers = "No flowers";
+
+        response = "Library is empty.";
+
     }
 
-    // Concat. flowerName and features in a single string
-    response = "FlowerList: " + flowers;
+    else {
+
+        // Concat. flowerName and features in a single string
+        response = flowers;
+
+    }
 
     // Return concat. string
     return response;
 }
 
-void FlowerList::toLowerCase(string &originalString) const {
-    string lowercaseString = "";
-
-    for (int i = 0; i < originalString.length(); i++) {
-        lowercaseString+= (char) tolower(originalString[i]);
-    }
-
-    originalString = lowercaseString;
-}
-
 bool FlowerList::isDuplicate(string flowerName) const {
-
-    toLowerCase(flowerName);
 
     // Traverse through list of flowers
     for (FlowerNode *curPtr = head; curPtr != NULL; curPtr = curPtr->next) {
 
         // Return true if given flowerName is already present in flower list
         if (curPtr->f.getName() == flowerName) {
+            cout << flowerName << " cannot be added into the library because it already exists." << endl;
             return true;
         }
     }

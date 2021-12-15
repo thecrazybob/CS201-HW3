@@ -30,9 +30,7 @@ class Flower {
 
         void setName(string newName);
 
-        void toLowerCase(string &originalString);
-
-        bool isDuplicate(string feature);
+        bool isDuplicate(string feature) const;
 
     private:
 

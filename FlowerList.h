@@ -20,13 +20,13 @@ class FlowerList {
 
         bool retrieve(string flowerName, Flower& flower) const;
 
+        bool retrievePointer(string flowerName, Flower*& flower) const;
+
         bool add(string flowerName);
 
         bool remove(string flowerName);
 
         string printFlowerList() const;
-
-        void toLowerCase(string &originalString) const;
 
         bool isDuplicate(string flowerName) const;
 

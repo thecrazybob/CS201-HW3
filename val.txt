@@ -1,19 +1,63 @@
-isEmpty(): 1
-getLength(): 0
-isEmpty(): 0
-getLength(): 6
-google: a ab az nice noot z isEmpty(): 0
-getLength(): 5
-google: a ab az noot z 
-end of Flower class testing
-isEmpty(): 1
-getLength(): 0
-isEmpty(): 0
-getLength(): 4
-FlowerList: aaaa bbbb cccc zzzz 
-FlowerList: aaaa bbbb zzzz 
-isEmpty(): 0
-getLength(): 3
-FlowerList: aaaa bbbb zzzz 
-FlowerList: aaaa bbbb zzzz 
-0
+Library is empty.
+Testing add flower
+
+magnolia has been added into the library.
+scarlet pimpernel has been added into the library.
+verbascum has been added into the library.
+
+magnolia cannot be added into the library because it already exists.
+magnolia cannot be added into the library because it already exists.
+
+magnolia: No feature
+scarlet pimpernel: No feature
+verbascum: No feature
+
+
+
+Testing remove flower
+
+magnolia has been removed from the library.
+lantana cannot be removed because it's not in the library.
+
+lantana cannot be removed because it's not in the library.
+verbascum has been removed from the library.
+oleander cannot be removed because it's not in the library.
+
+verbascum has been added into the library.
+
+scarlet pimpernel: No feature
+verbascum: No feature
+
+
+
+Testing add feature
+
+calla lilly has been added into the library.
+
+magnolia isn't found in the library
+
+yellow is added into verbascum
+biennial is added into verbascum
+perennial is added into verbascum
+ornamental is added into calla lilly
+
+ornamental already exists in calla lilly
+magnolia isn't found in the library
+
+magnolia has been added into the library.
+ornamental is added into magnolia
+citronella scented is added into magnolia
+magnolia: citronella scented ornamental 
+
+calla lilly: ornamental 
+
+
+Testing remove feature
+
+citronella scented is removed from magnolia
+yellow doesn't exist in magnolia
+magnolia: ornamental 
+
+Testing finding flowers
+
+

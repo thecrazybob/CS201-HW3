@@ -25,6 +25,8 @@ class FlowerLibrary {
 
         void findFlowers(string feature) const;
 
+        void toLowerCase(string &originalString) const;
+
     private:
 
         FlowerList flowers;

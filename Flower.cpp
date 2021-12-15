@@ -90,22 +90,19 @@ int Flower::getLength() const {
 // Add a feature to the Flower object
 bool Flower::add(string feature) {
 
-    // convert feature string to a lowercase string
-    toLowerCase(feature);
-
     // check if the feature is a duplicate
     if (isDuplicate(feature)) {
         return false;
     }
 
     // create a FeatureNode from the given 'feature' string
-    FeatureNode *newFeature = new FeatureNode;
-    newFeature->feature = feature;
+    FeatureNode *newFeatureNode = new FeatureNode;
+    newFeatureNode->feature = feature;
 
     // If list is empty or new item needs to be inserted at the start
-    if (head == NULL || head->feature > newFeature->feature) {
-        newFeature->next = head;
-        head = newFeature;
+    if (head == NULL || head->feature > newFeatureNode->feature) {
+        newFeatureNode->next = head;
+        head = newFeatureNode;
     }
 
     // Find the correct
@@ -118,19 +115,20 @@ bool Flower::add(string feature) {
         cur = head;
 
         // Loop until suitable location is found
-        while (cur->next != NULL && cur->next->feature <= newFeature->feature) {
+        while (cur->next != NULL && cur->next->feature <= newFeatureNode->feature) {
             cur = cur->next;
         }
 
         // Newly created node will point to current node's next
-        newFeature->next = cur->next;
+        newFeatureNode->next = cur->next;
 
         // Current node's next will point to newly created node
-        cur->next = newFeature;
+        cur->next = newFeatureNode;
 
     }
 
     size++;
+    cout << feature << " is added into " << flowerName << endl;
     return true;
 
 }
@@ -138,15 +136,8 @@ bool Flower::add(string feature) {
 // Remove a feature from the Flower object
 bool Flower::remove(string feature) {
 
-    // convert feature string to a lowercase string
-    toLowerCase(feature);
-
     // 1. The linked list is empty - nothing to remove
-    if (head == NULL) {
-        return false;
-    }
-
-    else {
+    if (head != NULL) {
 
         // Current FeatureNode (used in while loop)
         FeatureNode *cur;
@@ -159,6 +150,7 @@ bool Flower::remove(string feature) {
             head = head->next;
             --size;
             delete cur;
+            cout << feature << " is removed from " << flowerName << endl;
             return true;
         }
 
@@ -171,9 +163,8 @@ bool Flower::remove(string feature) {
                     FeatureNode* tmp = cur->next;
                     cur->next = cur->next->next;
                     --size;
-
                     delete tmp;
-
+                    cout << feature << " is removed from " << flowerName << endl;
                     return true;
 
                 }
@@ -185,6 +176,7 @@ bool Flower::remove(string feature) {
 
     }
 
+    cout << feature << " doesn't exist in magnolia" << endl;
     return false;
 
 }
@@ -221,30 +213,20 @@ void Flower::setName(string newName) {
     flowerName = newName;
 }
 
-void Flower::toLowerCase(string &originalString) {
-    string lowercaseString = "";
+bool Flower::isDuplicate(string feature) const {
 
-    for (int i = 0; i < originalString.length(); i++) {
-        lowercaseString+= (char) tolower(originalString[i]);
-    }
-
-    originalString = lowercaseString;
-}
-
-bool Flower::isDuplicate(string feature) {
-
-    toLowerCase(feature);
-
-    // Traverse through list of flowers
+    // Traverse through list of features
     for (FeatureNode *curPtr = head; curPtr != NULL; curPtr = curPtr->next) {
 
-        // Return true if given flowerName is already present in flower list
+        // Return true if given feature is already present in feature list
         if (curPtr->feature == feature) {
+            cout << feature << " already exists in " << flowerName << endl;
             return true;
         }
+
     }
 
-    // No match found - given flowerName isn't a duplicate
+    // No match found - given feature isn't a duplicate
     return false;
 
 }
