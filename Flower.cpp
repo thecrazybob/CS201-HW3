@@ -189,7 +189,13 @@ string Flower::printFlower() const {
 
     // Loop through features and concat. them in a string
     for (FeatureNode *curPtr = head; curPtr != NULL; curPtr = curPtr->next) {
-        features += curPtr->feature + " ";
+
+        features += curPtr->feature;
+
+        if (curPtr->next != NULL) {
+            features += ", ";
+        }
+
     }
 
     // If no features are found, use default string
