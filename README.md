@@ -1,4 +1,4 @@
 To run
 ```
-g++ FlowerList.cpp Flower.cpp test.cpp -o o -g && ./o
+g++ Flower.cpp FlowerList.cpp FlowerLibrary.cpp main.cpp -o o -g && ./o
 ```
