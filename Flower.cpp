@@ -87,6 +87,19 @@ int Flower::getLength() const {
     return size;
 }
 
+bool Flower::find(string feature) const {
+
+    // Verify if the given feature exists in the Flower
+    for (FeatureNode *curPtr = head; curPtr != NULL; curPtr = curPtr->next) {
+        if (curPtr->feature == feature) {
+            return true;
+        }
+    }
+
+    return false;
+
+}
+
 // Add a feature to the Flower object
 bool Flower::add(string feature) {
 

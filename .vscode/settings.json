@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        ".php_cs": "php",
+        ".php_cs.dist": "php",
+        ".blade.php": "html",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp"
+    }
+}

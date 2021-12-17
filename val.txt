@@ -47,17 +47,20 @@ magnolia isn't found in the library
 magnolia has been added into the library.
 ornamental is added into magnolia
 citronella scented is added into magnolia
-magnolia: citronella scented ornamental 
+magnolia: citronella scented, ornamental
 
-calla lilly: ornamental 
+calla lilly: ornamental
 
 
 Testing remove feature
 
 citronella scented is removed from magnolia
 yellow doesn't exist in magnolia
-magnolia: ornamental 
+magnolia: ornamental
 
 Testing finding flowers
 
+ornamental flowers: calla lilly, magnolia
+yellow flowers: verbascum
 
+white flowers: there is no such flower

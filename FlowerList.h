@@ -30,6 +30,8 @@ class FlowerList {
 
         bool isDuplicate(string flowerName) const;
 
+        string find(string feature) const;
+
     private:
 
         struct FlowerNode{

@@ -32,6 +32,8 @@ class Flower {
 
         bool isDuplicate(string feature) const;
 
+        bool find(string feature) const;
+
     private:
 
         struct FeatureNode {

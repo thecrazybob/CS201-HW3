@@ -94,6 +94,23 @@ void FlowerLibrary::findFlowers(string feature) const {
     // Convert flowerName string to lowercase string
     toLowerCase(feature);
 
+    // Loop through FlowerList, if feature matches, return flowerName as string
+    string flowerNames = flowers.find(feature);
+
+    cout << feature << " flowers" << ": ";
+
+    // No flowers with given feature found
+    if (flowerNames == "") {
+        cout << "there is no such flower";
+    }
+
+    // Flowers found, print list
+    else {
+        cout << flowerNames;
+    }
+
+    cout << endl;
+
 }
 
 

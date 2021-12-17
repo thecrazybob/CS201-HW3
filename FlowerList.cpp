@@ -240,6 +240,26 @@ string FlowerList::printFlowerList() const {
     return response;
 }
 
+string FlowerList::find(string feature) const {
+
+    string flowerNames;
+
+    // Loop through FlowerNodes and increment flowerNames string with name of flowers which match
+    for (FlowerNode *cur = head; cur != NULL; cur = cur->next) {
+        if (cur->f.find(feature)) {
+            flowerNames += cur->f.getName() + ", ";
+        }
+    }
+
+    // Remove the trailing comma if flowerNames is not empty
+    if (flowerNames != "") {
+        flowerNames = flowerNames.erase(flowerNames.length()-2);
+    }
+
+    return flowerNames;
+
+}
+
 bool FlowerList::isDuplicate(string flowerName) const {
 
     // Traverse through list of flowers
